@@ -1,0 +1,83 @@
+
+<div class="container-xxl py-5 bg-white">
+  <div class="container">
+    <div class="row g-0">
+      <div class="col-lg-6 wow fadeIn centerdiv" data-wow-delay="0.1s">
+        <div class="bg-transparent p-5">
+          <h1 class="text-uppercase mb-4 text-center titre">{{ produit.id ? 'Modifier Produit' : 'Ajouter Produit' }}</h1>
+
+          <form (ngSubmit)="submitProduit()" id="feedback-form">
+            <!-- Form fields -->
+            <div class="row g-3">
+           
+              <div class="form-floating">
+                <input required type="text" id="nomProduit" [(ngModel)]="produit.titre" name="nomProduit" class="form-control bg-white" style="height: 100px;border-radius:8px"  />
+                <label for="message" class="thick">Nom</label>
+              </div>
+            </div>
+            <br>
+
+          <div class="col-12">
+              <div class="form-floating">
+                  <input required type="number" id="prixProduit" [(ngModel)]="produit.prix" name="prixProduit" class="form-control bg-white" style="height: 100px;border-radius:8px"  />
+                  <label for="message" class="thick">Prix</label>
+                </div>
+          </div>
+          <br>
+
+          <div class="col-12">
+              <div class="form-floating">
+                  <input required type="number"  id="quantiteProduit" [(ngModel)]="produit.quantity" name="quantiteProduit" class="form-control bg-white" style="height: 100px;border-radius:8px"  />
+                  <label for="message" class="thick">Quantité</label>
+                </div>
+            </div>
+            <br>
+
+          <div class="col-12">
+            <div class="form-group">
+
+              <button class="btn btn-primary col-12" style="border-radius: 8px;" type="submit" name="submit">{{ produit.id ? 'Modifier' : 'Ajouter' }}</button>
+            </div>
+          </div>
+
+
+            <!-- Submit button -->
+          </form>
+        </div>
+      </div>
+
+          <div class="col-lg-6">
+          
+              
+        <h2 class="text-uppercase mb-4 text-center titre">Liste Produits</h2>
+        <table class="table table-striped">
+          <thead>
+              <tr>
+                <th>Nom</th>
+                <th>Prix</th>
+                <th>Quantité</th>
+                <th>Action 1</th>
+                <th>Action 2</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr *ngFor="let produit of listproduits">
+                <td>{{ produit.titre }}</td>
+                <td>{{ produit.prix }}</td>
+                <td>{{ produit.quantity }}</td>
+                
+                <td>
+              <button class="btn btn-primary" style="border-radius: 8px;"(click)="SupprimerProduit(produit.id)" >Supprimer </button>
+              <td>
+                <button class="btn btn-primary" style="border-radius: 8px;" (click)="updateProduit(produit.id)">Modifier</button>
+              </td>
+  
+              </tr>
+            </tbody>
+          <!-- Table content -->
+        </table>
+      </div>
+    </div>
+  </div>
+</div>
+

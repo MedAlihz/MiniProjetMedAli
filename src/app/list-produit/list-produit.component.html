@@ -1,0 +1,24 @@
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+
+
+  <div class="card-row">
+      
+    <div class="card-col" *ngFor="let produit of listproduits">
+      <mat-card>
+          <mat-card-content>
+
+            <h2 class="card-title thick" mat-card-title>{{produit.titre}}</h2>
+            <p class="card-subtitle titre " mat-card-subtitle> Quantité: {{produit.quantity}} Pieces</p>
+            <p class="card-content titre" mat-card-content> Prix : {{produit.prix}} Euros</p>
+          </mat-card-content>
+          <mat-card-actions class="card-actions">
+    
+            <button class="btn btn-primary" style="border-radius: 8px;" (click)="SupprimerProduit(produit.id)" >Supprimer </button>
+
+          </mat-card-actions>
+        
+            
+        </mat-card>
+    </div>
+  </div>
